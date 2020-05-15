@@ -4,7 +4,9 @@ import java.util.UUID;
 public class Company {
 	
 	private String id;
-	private String publishedYear;
+	private int availableShares;
+	private int soldShares;
+	
 	private ArrayList<Share> shares = new ArrayList<Share>();
 	
 	public Company() {
@@ -12,6 +14,7 @@ public class Company {
 		this.id =  UUID.randomUUID().toString();
 		
 		int totalShares = (int)Math.random() * (1000 - 500 + 1) + 500;
+		
 		int price;
 		
 		for (int i = 0; i<totalShares; i++) {
@@ -20,7 +23,21 @@ public class Company {
 			shares.add(new Share(price));
 		}
 		
-		
+		availableShares = totalShares;
+	}
+	
+	
+	public void decrementShare() {
+		soldShares++;
+		availableShares--;
+	}
+	
+	public int getSoldShares() {
+		return soldShares++;
+	}
+	
+	public int getAvailableShares() {
+		return availableShares--;
 	}
     
 }
