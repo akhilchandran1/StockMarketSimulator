@@ -7,7 +7,12 @@ public class Company {
 	private int availableShares;
 	private int soldShares;
 	
-	private ArrayList<Share> shares = new ArrayList<Share>();
+	/*Behavior Design Pattern - OBSERVER Design Pattern
+	 *Every time a share is sold, we will remove it to update the shares list of each company
+	*/
+	
+	
+	public ArrayList<Share> shares = new ArrayList<Share>();
 	
 	public Company() {
 		
@@ -27,17 +32,21 @@ public class Company {
 	}
 	
 	
+	public void removeShare(Share share) {
+		shares.remove(share);
+	}
+	
 	public void decrementShare() {
 		soldShares++;
 		availableShares--;
 	}
 	
 	public int getSoldShares() {
-		return soldShares++;
+		return soldShares;
 	}
 	
 	public int getAvailableShares() {
-		return availableShares--;
+		return availableShares;
 	}
     
 }
