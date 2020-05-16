@@ -18,17 +18,27 @@ public class Company {
 		
 		this.id =  UUID.randomUUID().toString();
 		
-		int totalShares = (int)Math.random() * (1000 - 500 + 1) + 500;
+		int totalShares = (int)(Math.random() * (1000 - 500 + 1) + 500);
 		
 		int price;
 		
 		for (int i = 0; i<totalShares; i++) {
 			
-			price =(int)Math.random() * (100 - 10 + 1) + 10;
+			price =(int)(Math.random() * (100 - 10 + 1) + 10);
 			shares.add(new Share(price));
 		}
 		
 		availableShares = totalShares;
+	}
+	
+	
+	public String getId() {
+		return id;
+	}
+	
+	
+	public ArrayList<Share> getShares() {
+		return shares;
 	}
 	
 	
@@ -38,9 +48,11 @@ public class Company {
 		availableShares--;
 	}
 	
+	
 	public int getSoldShares() {
 		return soldShares;
 	}
+	
 	
 	public int getAvailableShares() {
 		return availableShares;

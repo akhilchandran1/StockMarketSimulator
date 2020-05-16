@@ -16,10 +16,14 @@ public class Investor {
 	public Investor() {
 		
 		id =  UUID.randomUUID().toString();
-		budget = (int)Math.random() * (10000 - 1000 + 1) + 1000;
+		budget = (int)(Math.random() * (10000 - 1000 + 1) + 1000);
 		purchasedShares = 0;
 	}
 	
+	
+	public String getId() {
+		return id;
+	}
 	
 	public int getBudget() {
 		return budget;
@@ -28,5 +32,11 @@ public class Investor {
 	
 	public void addShare(Share share) {
 		shares.add(share);
+		purchasedShares++;
+	}
+	
+	
+	public int getPurchasedShares() {
+		return purchasedShares;
 	}
 }

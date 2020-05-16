@@ -12,6 +12,7 @@ class Mediator{
 	//creating instance of mediator class as static
 	static Mediator m = new Mediator();
 	
+	public int sharesSold = 0;
     public static ArrayList<Company> companies;
     public static ArrayList<Investor> investors;
     
@@ -39,13 +40,56 @@ class Mediator{
     }
 
     public void trade(int c, int i ){
+        
+    	int index = companies.get(c).shares.size()-1;
     	
-    	int price = companies.get(c).shares.get(companies.get(c).shares.size()-1).getPrice();
+    	if(index==0)
+    		return;
+    	
+    	int price = companies.get(c).shares.get(index).getPrice();
     	int budget = investors.get(i).getBudget();
     	
-        if(price < budget) {
+        if(price <= budget) {
+        	
+        	investors.get(i).addShare(companies.get(c).shares.get(index));
+        	companies.get(c).removeShare(companies.get(c).shares.get(index));
+        	
+        	sharesSold++;
+        }
+        checkDoubleUp();
+        checkNoSales();
         	
         }
     
+
+    //  If a company sells 10 shares, the share price is double up
+    public void checkDoubleUp() {
+    	
+    	for(Company c: companies) {
+    		if(c.getSoldShares()==10) {
+    			
+    			for(Share s: c.shares) {
+    				s.setPrice(s.getPrice()*2);
+    			}
+    		}
+    	}
     }
+    
+    // If any 10 shares are sold (from any company), and a company hasn’t sold any, the
+    //price is reduced to 2%
+    public void checkNoSales() {
+    	
+    	if(sharesSold==10) {
+    		
+    		for(Company c: companies) {			
+        		if(c.getSoldShares()==0) {
+        			
+        			for(Share s: c.shares) {
+        				s.setPrice(s.getPrice()-(s.getPrice()*2/100));
+        			}
+        		}
+        	}
+    	}
+    }
+    
 }
