@@ -39,6 +39,29 @@ class Mediator{
     	this.investors.add(investor);
     }
 
+ // Transaction of trade between seller
+    public void trade(int c, int i ){
+        
+		for(int j=0; j<companies.get(c).getShares().size(); j++) {
+			
+			if(companies.get(c).getShares().get(j).getPrice()<= investors.get(i).getBudget()) {
+				
+				/*print company <id> sold share of $<price> to investor <id>*/
+				//System.out.println("Company "+companies.get(c).getId()+" sold a share of $"+companies.get(c).getShares().get(j).getPrice()+" to "+investors.get(i).getId());
+				
+				/*print a company sold a share to an investor for $price*/
+				System.out.println("Company sold a share to investor of $"+companies.get(c).getShares().get(j).getPrice());
+				
+				
+				investors.get(i).addShare(companies.get(c).getShares().get(j));
+				companies.get(c).removeShare(companies.get(c).getShares().get(j));
+			}
+		}
+	        checkDoubleUp();
+	        checkNoSales();
+  	
+    }
+    	/*
     public void trade(int c, int i ){
         
     	int index = companies.get(c).shares.size()-1;
@@ -60,11 +83,12 @@ class Mediator{
         checkNoSales();
         	
         }
-    
+    */
 
     //  If a company sells 10 shares, the share price is double up
     public void checkDoubleUp() {
     	
+    	System.out.println("Running double up");
     	for(Company c: companies) {
     		if(c.getSoldShares()==10) {
     			

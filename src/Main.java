@@ -10,7 +10,8 @@ public class Main {
 	
 	public static void main(String[] arg) {
 		
-	
+		// Declaring and initializing the mediator class to save list of companies and objects
+		
 		
 		int size =100;
 		
@@ -36,18 +37,27 @@ public class Main {
 		//it is not specified that how companies and investors are going to trade
 		//So we are going to choose a random investor and a random company that will trade
 		//this process will continue until all the share are sold, or all investors are out of budget
+		System.out.println("trading................");
 		int a=0;
 		while(true) {
 		//A random Investor
-		int c = (int) Math.random() * (100) ;
-		int i = (int) Math.random() * (100) ;
+		//int c = (int) Math.random() * (100) ;
+		//int i = (int) Math.random() * (100) ;
 		//System.out.println(a+") "+c+" "+i);
-			m.trade(c,i);
+			int comp, inv, sh;
+			
+			
+			for(int i = 0; i<m.companies.size(); i++) {
+				
+				if(m.companies.get(i)!=null && m.investors.get(i)!=null) {
+					m.trade(i,i);
+				}
+			}
 			
 			
 			if(allSharesSold() || outofBudget()) {
 				
-				System.out.println("allSharesSold() || outofBudget()");
+				System.out.println("Trade End");
 				break;
 			}
 			a++;
