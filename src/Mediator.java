@@ -4,6 +4,10 @@ import java.util.ArrayList;
 //Mediator class will hold the list of all the companies and investors
 // Benefit of using this pattern is; it will make easy the transactions of share between companies and investors 
 class Mediator{
+	
+	/*
+	 * Creational Design Pattern - SINGLETON
+	 */
 
 	//creating instance of mediator class as static
 	static Mediator m = new Mediator();
@@ -35,7 +39,13 @@ class Mediator{
     }
 
     public void trade(int c, int i ){
-        
+    	
+    	int price = companies.get(c).shares.get(companies.get(c).shares.size()-1).getPrice();
+    	int budget = investors.get(i).getBudget();
+    	
+        if(price < budget) {
+        	
+        }
     
     }
 }

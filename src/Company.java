@@ -34,9 +34,6 @@ public class Company {
 	
 	public void removeShare(Share share) {
 		shares.remove(share);
-	}
-	
-	public void decrementShare() {
 		soldShares++;
 		availableShares--;
 	}

@@ -8,4 +8,8 @@ public class Share {
 	public Share(int price) {
 		this.price = price;
 	}
+	
+	public int getPrice() {
+		return price;
+	}
 }
