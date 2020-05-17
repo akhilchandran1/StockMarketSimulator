@@ -20,22 +20,22 @@ public class Investor {
 		purchasedShares = 0;
 	}
 	
-	
+	//Return id of investor
 	public String getId() {
 		return id;
 	}
-	
+	//returns budget of investor for purchases
 	public int getBudget() {
 		return budget;
 	}
 	
-	
+	//share is added to list of investor's purchases
 	public void addShare(Share share) {
 		shares.add(share);
 		purchasedShares++;
 	}
 	
-	
+	//returns the count of purchases by investors
 	public int getPurchasedShares() {
 		return purchasedShares;
 	}

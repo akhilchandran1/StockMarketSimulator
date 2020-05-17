@@ -14,6 +14,7 @@ public class Company {
 	
 	public ArrayList<Share> shares = new ArrayList<Share>();
 	
+	//Constructor of company
 	public Company() {
 		
 		this.id =  UUID.randomUUID().toString();
@@ -31,29 +32,29 @@ public class Company {
 		availableShares = totalShares;
 	}
 	
-	
+	//Returns id of Company
 	public String getId() {
 		return id;
 	}
 	
-	
+	//Return list of shares
 	public ArrayList<Share> getShares() {
 		return shares;
 	}
 	
-	
+	// A shared purchased by investor is removed from company
 	public void removeShare(Share share) {
 		shares.remove(share);
 		soldShares++;
 		availableShares--;
 	}
 	
-	
+	// return count of total sold shares by a company
 	public int getSoldShares() {
 		return soldShares;
 	}
 	
-	
+	// return available shares for investors to buy
 	public int getAvailableShares() {
 		return availableShares;
 	}

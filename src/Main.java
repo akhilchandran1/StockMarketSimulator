@@ -65,7 +65,7 @@ public class Main {
 		}
 	}
 	
-	
+	// Method will return true if all shares are sold 
 	public static boolean allSharesSold() {
 		
 		for(Company c: m.companies) {
@@ -76,7 +76,7 @@ public class Main {
 		}
 		return true;
 	}
-	
+	// Method will return true if all investors spent their money
 	public static boolean outofBudget() {
 		
 		for(Investor i: m.investors) {
@@ -126,6 +126,7 @@ public class Main {
 		
 	}
 	
+	// Method prints the Highest Capital company's ID and SharesSold
 	public static void companyWithHighestCapital() {
 		
 		int index =0;
@@ -144,6 +145,7 @@ public class Main {
 		System.out.println("Shares : "+m.companies.get(index).getSoldShares());
 	}
 	
+	// Method prints the Lowest Capital company's ID and SharesSold
 	public static void companyWithLowestCapital() {
 			
 		int shares = m.companies.get(0).getSoldShares();
@@ -160,6 +162,7 @@ public class Main {
 		System.out.println("Shares : "+m.companies.get(index).getSoldShares());
 	}
 	
+	// Method prints the ID and SharesPurchased of investor with highest purchases
 	public static void investorWithHighestShares() {
 		
 		int index =0;
@@ -175,7 +178,7 @@ public class Main {
 		System.out.println("ID : "+m.investors.get(index).getId());
 		System.out.println("Shares : "+m.investors.get(index).getPurchasedShares());
 	}
-	
+	// Method prints the ID and SharesPurchased of investor with lowest purchases
 	public static void investorWithLowestShares() {
 	
 		int index =0;
@@ -192,6 +195,7 @@ public class Main {
 		System.out.println("Shares : "+m.investors.get(index).getPurchasedShares());
 	}
 	
+	// Method Prints the IDs of all the companies with doubled up share's prices
 	public static void showDoubledUp(){
 		
 		System.out.println(m.doubledUp.size());
@@ -204,6 +208,7 @@ public class Main {
 		}
 	}
 	
+	// Method Prints the IDs of all the companies with 2% reduction in share's prices
 	public static void showReduced(){
 		
 		System.out.println(m.reduced.size());
