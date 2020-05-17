@@ -66,29 +66,7 @@ class Mediator{
 	        checkNoSales();
   	
     }
-    	/*
-    public void trade(int c, int i ){
-        
-    	int index = companies.get(c).shares.size()-1;
-    	
-    	if(index==0)
-    		return;
-    	
-    	int price = companies.get(c).shares.get(index).getPrice();
-    	int budget = investors.get(i).getBudget();
-    	
-        if(price <= budget) {
-        	
-        	investors.get(i).addShare(companies.get(c).shares.get(index));
-        	companies.get(c).removeShare(companies.get(c).shares.get(index));
-        	
-        	sharesSold++;
-        }
-        checkDoubleUp();
-        checkNoSales();
-        	
-        }
-    */
+
 
     //  If a company sells 10 shares, the share price is double up
     public void checkDoubleUp() {

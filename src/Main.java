@@ -91,12 +91,12 @@ public class Main {
 	// Menu prompt user to view reports
 	public static void menu() {
 		
-
+			//Printing
 			System.out.println("\n1) Company with highest capital \n2) Company with loest capital");
 			System.out.println("3) Investor with highest number of shares \n4) Investor with lowest number of shares");
 			System.out.println("5) Show Companies with doubled up share's prices\n6) Show Companies with 2% reduced share's prices");
 			System.out.println("7) Exit");
-			System.out.print("\n\tChoose an option: ");
+			System.out.print("\n\t Choose an option: ");
 			
 			int c = input.nextInt();
 			
@@ -123,12 +123,13 @@ public class Main {
 			case 7:
 				exit();
 			default:
+				//Printing
 				System.out.println("--------------------------------------------------------------------------------------------");
 				System.out.println("");
-				System.out.println("\ntInvalid input");
+				System.out.println("\n\t Invalid input");
 				System.out.println("");
 				System.out.println("--------------------------------------------------------------------------------------------");
-				menu();
+				menu(); // calling menu
 			}
 		
 	}
@@ -136,8 +137,8 @@ public class Main {
 	// Method prints the Highest Capital company's ID and SharesSold
 	public static void companyWithHighestCapital() {
 		
-		int index =0;
 		int shares = m.companies.get(0).getSoldShares();
+		int index =0;
 		for(Company c: m.companies) {
 			
 			if(c.getSoldShares() > shares) {
@@ -145,15 +146,15 @@ public class Main {
 				index = m.companies.indexOf(c);
 			}
 		}
-		
+		//Printing
 		System.out.println("-----------------------------------------------------------------------------------------------");
 		System.out.println("**********  Company with highest Capital  **************");
 		System.out.println("");
-		System.out.println("ID : "+m.companies.get(index));
+		System.out.println("ID : "+m.companies.get(index).getId());
 		System.out.println("Shares : "+m.companies.get(index).getSoldShares());
 		System.out.println("");
 		System.out.println("--------------------------------------------------------------------------------------------");
-		menu();
+		menu(); // calling menu
 	}
 	
 	// Method prints the Lowest Capital company's ID and SharesSold
@@ -168,6 +169,7 @@ public class Main {
 				index = m.companies.indexOf(c);
 			}
 		}
+		//Printing
 		System.out.println("-----------------------------------------------------------------------------------------------");
 		System.out.println("**********  Company with lowest Capital  **************");
 		System.out.println("");
@@ -175,7 +177,7 @@ public class Main {
 		System.out.println("Shares : "+m.companies.get(index).getSoldShares());
 		System.out.println("");
 		System.out.println("--------------------------------------------------------------------------------------------");
-		menu();
+		menu();// calling menu
 	}
 	
 	// Method prints the ID and SharesPurchased of investor with highest purchases
@@ -190,6 +192,7 @@ public class Main {
 				index = m.investors.indexOf(i);
 			}
 		}
+		//Printing
 		System.out.println("-----------------------------------------------------------------------------------------------");
 		System.out.println("**********  Investor with highest shares  **************");
 		System.out.println("");
@@ -197,7 +200,7 @@ public class Main {
 		System.out.println("Shares : "+m.investors.get(index).getPurchasedShares());
 		System.out.println("");
 		System.out.println("--------------------------------------------------------------------------------------------");
-		menu();
+		menu();// calling menu
 	}
 	// Method prints the ID and SharesPurchased of investor with lowest purchases
 	public static void investorWithLowestShares() {
@@ -211,6 +214,7 @@ public class Main {
 				index = m.investors.indexOf(i);
 			}
 		}
+		//Printing
 		System.out.println("-----------------------------------------------------------------------------------------------");
 		System.out.println("**********  Investor with Lowest shares  **************");
 		System.out.println("");
@@ -218,7 +222,7 @@ public class Main {
 		System.out.println("Shares : "+m.investors.get(index).getPurchasedShares());
 		System.out.println("");
 		System.out.println("--------------------------------------------------------------------------------------------");
-		menu();
+		menu();// calling menu
 	}
 	
 	// Method Prints the IDs of all the companies with doubled up share's prices
@@ -232,15 +236,16 @@ public class Main {
 		
 			
 		}
+		//Printing
 		System.out.println("--------------------------------------------------------------------------------------------");
 		System.out.println("");
-		menu();
+		menu();// calling menu
 	}
 	
 	// Method Prints the IDs of all the companies with 2% reduction in share's prices
 	public static void showReduced(){
 		
-		
+		//Printing
 		System.out.println("-----------------------------------------------------------------------------------------------");
 		System.out.println("**********  Companies with 2% reduced share's prices  **************");
 		System.out.println("");
@@ -254,18 +259,19 @@ public class Main {
 			}
 			
 		}
+		//Printing
 		System.out.println("--------------------------------------------------------------------------------------------");
 		System.out.println("");
-		menu();
+		menu();// calling menu
 	}
 	
 	//exit method
 	public static void exit() {
-		
+		//Printing
 		System.out.println("*******************************************************");
 		System.out.println("            Thank you for Trading             ");
 		System.out.println("                    Good Bye.......!                   "); // printing Good bye message
 		System.out.println("*******************************************************");
-		System.exit(0);
+		System.exit(0);// exit
 	}
 }
