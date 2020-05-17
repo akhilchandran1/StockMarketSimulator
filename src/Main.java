@@ -53,8 +53,7 @@ public class Main {
 					m.trade(i,i);
 				}
 			}
-			
-			
+	
 			if(allSharesSold() || outofBudget()) {
 				
 				System.out.println("Trade End");
@@ -96,6 +95,7 @@ public class Main {
 			System.out.println("\n1) Company with highest capital \n2) Company with loest capital");
 			System.out.println("3) Investor with highest number of shares \n4) Investor with lowest number of shares");
 			System.out.println("5) Show Companies with doubled up share's prices\n6) Show Companies with 2% reduced share's prices");
+			System.out.println("7) Exit");
 			System.out.print("\n\tChoose an option: ");
 			
 			int c = input.nextInt();
@@ -120,8 +120,15 @@ public class Main {
 			case 6:
 				showReduced();
 				break;
+			case 7:
+				exit();
 			default:
+				System.out.println("--------------------------------------------------------------------------------------------");
+				System.out.println("");
 				System.out.println("\ntInvalid input");
+				System.out.println("");
+				System.out.println("--------------------------------------------------------------------------------------------");
+				menu();
 			}
 		
 	}
@@ -139,10 +146,13 @@ public class Main {
 			}
 		}
 		
-
-		System.out.println("Company with highest Capital");
+		System.out.println("-----------------------------------------------------------------------------------------------");
+		System.out.println("**********  Company with highest Capital  **************");
+		System.out.println("");
 		System.out.println("ID : "+m.companies.get(index));
 		System.out.println("Shares : "+m.companies.get(index).getSoldShares());
+		System.out.println("");
+		System.out.println("--------------------------------------------------------------------------------------------");
 		menu();
 	}
 	
@@ -158,9 +168,13 @@ public class Main {
 				index = m.companies.indexOf(c);
 			}
 		}
-		System.out.println("Company with lowest Capital");
+		System.out.println("-----------------------------------------------------------------------------------------------");
+		System.out.println("**********  Company with lowest Capital  **************");
+		System.out.println("");
 		System.out.println("ID : "+m.companies.get(index).getId());
 		System.out.println("Shares : "+m.companies.get(index).getSoldShares());
+		System.out.println("");
+		System.out.println("--------------------------------------------------------------------------------------------");
 		menu();
 	}
 	
@@ -176,9 +190,13 @@ public class Main {
 				index = m.investors.indexOf(i);
 			}
 		}
-		System.out.println("Investor with highest shares");
+		System.out.println("-----------------------------------------------------------------------------------------------");
+		System.out.println("**********  Investor with highest shares  **************");
+		System.out.println("");
 		System.out.println("ID : "+m.investors.get(index).getId());
 		System.out.println("Shares : "+m.investors.get(index).getPurchasedShares());
+		System.out.println("");
+		System.out.println("--------------------------------------------------------------------------------------------");
 		menu();
 	}
 	// Method prints the ID and SharesPurchased of investor with lowest purchases
@@ -193,33 +211,39 @@ public class Main {
 				index = m.investors.indexOf(i);
 			}
 		}
-		System.out.println("Investor with Lowest shares");
+		System.out.println("-----------------------------------------------------------------------------------------------");
+		System.out.println("**********  Investor with Lowest shares  **************");
+		System.out.println("");
 		System.out.println("ID : "+m.investors.get(index).getId());
 		System.out.println("Shares : "+m.investors.get(index).getPurchasedShares());
+		System.out.println("");
+		System.out.println("--------------------------------------------------------------------------------------------");
 		menu();
 	}
 	
 	// Method Prints the IDs of all the companies with doubled up share's prices
 	public static void showDoubledUp(){
+		System.out.println("");
+		System.out.println("-----------------------------------------------------------------------------------------------");
+		System.out.println("**********  Companies with Doubled up share's price  **************");
 		
-		System.out.println("\n\t Companies with Doubled up share's price :");
 		for(Company c: m.doubledUp) {
 			System.out.println("id: "+c.getId());
 		
 			
-			for(Share s: c.shares) {
-				System.out.println( c.shares.indexOf(s)+1+") $"+ s.getPrice());
-				
-			}
-			
 		}
+		System.out.println("--------------------------------------------------------------------------------------------");
+		System.out.println("");
 		menu();
 	}
 	
 	// Method Prints the IDs of all the companies with 2% reduction in share's prices
 	public static void showReduced(){
 		
-		System.out.println("\n\tCompanies with 2% reduced share's prices");
+		
+		System.out.println("-----------------------------------------------------------------------------------------------");
+		System.out.println("**********  Companies with 2% reduced share's prices  **************");
+		System.out.println("");
 		System.out.println(m.reduced.size());
 		for(Company c: m.reduced) {
 			System.out.println("id: "+c.getId());
@@ -230,6 +254,18 @@ public class Main {
 			}
 			
 		}
+		System.out.println("--------------------------------------------------------------------------------------------");
+		System.out.println("");
 		menu();
+	}
+	
+	//exit method
+	public static void exit() {
+		
+		System.out.println("*******************************************************");
+		System.out.println("            Thank you for Trading             ");
+		System.out.println("                    Good Bye.......!                   "); // printing Good bye message
+		System.out.println("*******************************************************");
+		System.exit(0);
 	}
 }
