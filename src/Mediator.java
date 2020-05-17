@@ -12,15 +12,20 @@ class Mediator{
 	//creating instance of mediator class as static
 	static Mediator m = new Mediator();
 	
-	public int sharesSold = 0;
-    public static ArrayList<Company> companies;
-    public static ArrayList<Investor> investors;
+	public int sharesSold = 10;
+    public ArrayList<Company> companies;
+    public ArrayList<Investor> investors;
+    
+    public ArrayList<Company> doubledUp;
+    public ArrayList<Company> reduced;
     
     //Default Constructor is set to private 
     // So other classes cannot create instance of this class
     private Mediator(){
         this.companies = new ArrayList<>();
         this.investors = new ArrayList<>();
+        this.doubledUp = new ArrayList<>();
+        this.reduced = new ArrayList<>();
     }
     
     // Return Mediator Instance
@@ -50,7 +55,7 @@ class Mediator{
 				//System.out.println("Company "+companies.get(c).getId()+" sold a share of $"+companies.get(c).getShares().get(j).getPrice()+" to "+investors.get(i).getId());
 				
 				/*print a company sold a share to an investor for $price*/
-				System.out.println("Company sold a share to investor of $"+companies.get(c).getShares().get(j).getPrice());
+				//System.out.println("Company sold a share to investor of $"+companies.get(c).getShares().get(j).getPrice());
 				
 				
 				investors.get(i).addShare(companies.get(c).getShares().get(j));
@@ -88,14 +93,15 @@ class Mediator{
     //  If a company sells 10 shares, the share price is double up
     public void checkDoubleUp() {
     	
-    	System.out.println("Running double up");
+    	//System.out.println("Running double up");
     	for(Company c: companies) {
-    		if(c.getSoldShares()==10) {
+    		//if(c.getSoldShares()==10) {
     			
     			for(Share s: c.shares) {
     				s.setPrice(s.getPrice()*2);
     			}
-    		}
+        		doubledUp.add(c);
+    		//}
     	}
     }
     
@@ -106,12 +112,13 @@ class Mediator{
     	if(sharesSold==10) {
     		
     		for(Company c: companies) {			
-        		if(c.getSoldShares()==0) {
+        		//if(c.getSoldShares()==0) {
         			
         			for(Share s: c.shares) {
         				s.setPrice(s.getPrice()-(s.getPrice()*2/100));
         			}
-        		}
+        			reduced.add(c);
+        		//}
         	}
     	}
     }

@@ -92,10 +92,10 @@ public class Main {
 	// Menu prompt user to view reports
 	public static void menu() {
 		
-		
-		do {
+
 			System.out.println("\n1) Company with highest capital \n2) Company with loest capital");
-			System.out.println("3) Investor with highest number of shares \n4) Investor with lowest number of shares \n5) Exit");
+			System.out.println("3) Investor with highest number of shares \n4) Investor with lowest number of shares");
+			System.out.println("5) Show Companies with doubled up share's prices\n6) Show Companies with 2% reduced share's prices");
 			System.out.print("\n\tChoose an option: ");
 			
 			int c = input.nextInt();
@@ -115,12 +115,14 @@ public class Main {
 				investorWithLowestShares();
 				break;
 			case 5:
-				System.exit(0);
+				showDoubledUp();
+				break;
+			case 6:
+				showReduced();
 				break;
 			default:
 				System.out.println("\ntInvalid input");
 			}
-		}while(true);
 		
 	}
 	
@@ -188,5 +190,29 @@ public class Main {
 		System.out.println("Investor with Lowest shares");
 		System.out.println("ID : "+m.investors.get(index).getId());
 		System.out.println("Shares : "+m.investors.get(index).getPurchasedShares());
+	}
+	
+	public static void showDoubledUp(){
+		
+		System.out.println(m.doubledUp.size());
+		for(Company c: m.doubledUp) {
+			System.out.println("\n\tCompanies with doubled up share's prices");
+			
+			for(Share s: c.shares) {
+				System.out.println( c.shares.indexOf(s)+1+") $"+ s.getPrice());
+			}
+		}
+	}
+	
+	public static void showReduced(){
+		
+		System.out.println(m.reduced.size());
+		for(Company c: m.reduced) {
+			System.out.println("\n\tCompanies with 2% reduced share's prices");
+			
+			for(Share s: c.shares) {
+				System.out.println( c.shares.indexOf(s)+1+") $"+ s.getPrice());
+			}
+		}
 	}
 }
