@@ -143,6 +143,7 @@ public class Main {
 		System.out.println("Company with highest Capital");
 		System.out.println("ID : "+m.companies.get(index));
 		System.out.println("Shares : "+m.companies.get(index).getSoldShares());
+		menu();
 	}
 	
 	// Method prints the Lowest Capital company's ID and SharesSold
@@ -160,6 +161,7 @@ public class Main {
 		System.out.println("Company with lowest Capital");
 		System.out.println("ID : "+m.companies.get(index).getId());
 		System.out.println("Shares : "+m.companies.get(index).getSoldShares());
+		menu();
 	}
 	
 	// Method prints the ID and SharesPurchased of investor with highest purchases
@@ -177,6 +179,7 @@ public class Main {
 		System.out.println("Investor with highest shares");
 		System.out.println("ID : "+m.investors.get(index).getId());
 		System.out.println("Shares : "+m.investors.get(index).getPurchasedShares());
+		menu();
 	}
 	// Method prints the ID and SharesPurchased of investor with lowest purchases
 	public static void investorWithLowestShares() {
@@ -193,31 +196,40 @@ public class Main {
 		System.out.println("Investor with Lowest shares");
 		System.out.println("ID : "+m.investors.get(index).getId());
 		System.out.println("Shares : "+m.investors.get(index).getPurchasedShares());
+		menu();
 	}
 	
 	// Method Prints the IDs of all the companies with doubled up share's prices
 	public static void showDoubledUp(){
 		
-		System.out.println(m.doubledUp.size());
+		System.out.println("\n\t Companies with Doubled up share's price :");
 		for(Company c: m.doubledUp) {
-			System.out.println("\n\tCompanies with doubled up share's prices");
+			System.out.println("id: "+c.getId());
+		
 			
 			for(Share s: c.shares) {
 				System.out.println( c.shares.indexOf(s)+1+") $"+ s.getPrice());
+				
 			}
+			
 		}
+		menu();
 	}
 	
 	// Method Prints the IDs of all the companies with 2% reduction in share's prices
 	public static void showReduced(){
 		
+		System.out.println("\n\tCompanies with 2% reduced share's prices");
 		System.out.println(m.reduced.size());
 		for(Company c: m.reduced) {
-			System.out.println("\n\tCompanies with 2% reduced share's prices");
+			System.out.println("id: "+c.getId());
 			
 			for(Share s: c.shares) {
 				System.out.println( c.shares.indexOf(s)+1+") $"+ s.getPrice());
+				
 			}
+			
 		}
+		menu();
 	}
 }
